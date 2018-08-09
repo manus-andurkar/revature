@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Manager Options</title>
+</head>
+<body>
+	<h2>What would you like to do today?</h2>
+	<div>
+	<button onclick="showSubmitRequest()">Submit a Request</button><br>
+	<button onclick="showViewRequest()">View My Requests</button><br>
+	<button onclick="showViewInfo()">View Information</button><br>
+	<button onclick="showUpdateInfo()">Update Information</button><br>
+	<form action="/ERSProject/InfoServlet">
+		<button type="submit" name="viewAll">View All Employees</button>
+	</form>
+	<form action="/ERSProject/RequestServlet">
+		<button type="submit" name="viewAll">View All Requests</button>
+	</form>
+	<button onclick="viewChangeReqStatus()">Change Request Status</button>
+	<br>
+	</div>
+	<div id="panel"></div>
+</body>
+<script>
+function showSubmitRequest() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("panel").innerHTML = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "/ERSProject/submitRequest.html", true);
+	  xhttp.send();
+	}
+
+function showViewRequest() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("panel").innerHTML = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "/ERSProject/viewRequest.html", true);
+	  xhttp.send();
+	}
+	
+function showViewInfo() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("panel").innerHTML = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "/ERSProject/viewInfo.html", true);
+	  xhttp.send();
+	}
+	
+function showUpdateInfo() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("panel").innerHTML = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "/ERSProject/submitInfo.html", true);
+	  xhttp.send();
+	}
+
+function showViewAllEmps() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("panel").innerHTML = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "/ERSProject/viewAllEmps.html", true);
+	  xhttp.send();
+	}
+	
+function viewChangeReqStatus() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("panel").innerHTML = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "/ERSProject/changeReqStatus.html", true);
+	  xhttp.send();
+	}
+</script>
+</html>
